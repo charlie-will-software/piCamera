@@ -1,5 +1,15 @@
+import logging
+
+# Local imports
+import logger
+
+
+log = logging.getLogger(__name__)
+
+
 def main() -> None:
-    pass
+    logger.configure_initial_logger()
+    log.info("---Pi Camera webapp---")
 
 
 if __name__ == "__main__":
