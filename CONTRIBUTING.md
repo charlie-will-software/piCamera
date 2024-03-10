@@ -68,6 +68,10 @@ Upon completion of the work, a Pull Request should be raised to merge the change
 
 ## Pull Requests
 
+Pull requests should be titled with a brief summary of the changes. The description should explain in more detail the changes made and why.
+
+Pull requests must be approved by at least one other developer. Pull requests must be completed with a merge.
+
 ## Style guides
 
 ### Commit messages
