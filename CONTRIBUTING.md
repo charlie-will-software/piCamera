@@ -31,7 +31,17 @@ All branch names should use kebab case. For example, `branch-name`.
 
 ### Main branch
 
+The main branch should contain only working code, used for releases of the application.
+
+Developers should never push directly to the main branch. New code should be merged by raising PRs from the develop branch or a hotfix branch.
+
 ### Develop branch
+
+The develop branch should be used to contain code for the next version of the application in development. Ideally, code should be working before merged into the develop branch.
+
+Developers should not push directly to the develop branch. New code should be merged by raising PRs from feature or user branches.
+
+The develop branch should not fall behind the main branch.
 
 ### Feature branches
 
