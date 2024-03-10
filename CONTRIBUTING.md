@@ -75,6 +75,7 @@ Pull requests must be approved by at least one other developer. Pull requests mu
 ## Style guides
 
 ### Commit messages
+
 Commit messages must contain a summary, ideally no longer than 50 characters, and optionally a description. The description must be wrapped to 72 characters per line. The summary and description must be all lower-case.
 
 Summaries should start with a type, followed by a colon and a space. For example: `feat: a new feature`.
@@ -89,3 +90,7 @@ Summaries should start with a type, followed by a colon and a space. For example
 | test | Adding or changing tests.                                                  |
 
 ### Python code
+
+All Python code should be formatted with [black](https://black.readthedocs.io/en/stable/), a PEP 8 compliant formatter. Developers are also encouraged to use [pylint](https://pylint.readthedocs.io/en/latest/) to check their code.
+
+Developers should aim to use docstrings as much as possible, following the [Google styleguide for comments and docstrings](https://google.github.io/styleguide/pyguide.html#s3.8-comments-and-docstrings).
