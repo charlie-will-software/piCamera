@@ -75,5 +75,17 @@ Pull requests must be approved by at least one other developer. Pull requests mu
 ## Style guides
 
 ### Commit messages
+Commit messages must contain a summary, ideally no longer than 50 characters, and optionally a description. The description must be wrapped to 72 characters per line. The summary and description must be all lower-case.
+
+Summaries should start with a type, followed by a colon and a space. For example: `feat: a new feature`.
+
+| Type | Description                                                                |
+| ---- | -------------------------------------------------------------------------- |
+| feat | Changes that contribute to a feature or enhancement.                       |
+| fix  | Changes that fix a bug or typo.                                            |
+| doc  | Changes to documentation.                                                  |
+| dep  | Changes to dependencies, such as an imported library version.              |
+| conf | Changes to configuration files, relating to the application or repository. |
+| test | Adding or changing tests.                                                  |
 
 ### Python code
