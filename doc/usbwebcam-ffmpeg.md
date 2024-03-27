@@ -35,10 +35,10 @@ def start_ffmpeg_process(
     """Function that starts the ffmpeg process with UDP output
 
     Keyword arguments:
-    width -- wif
-    height --
-    fps --
-    output_ip -- 
+    width -- width of the input fram
+    height -- Height of the input fram
+    fps -- fps of input stream
+    output_ip 
     """
     command = [
         "ffmpeg",
@@ -67,12 +67,12 @@ def start_ffmpeg_process(
 
 # Main function to capture webcam feed and stream over UDP
 def webcam_to_vlc_stream(
-    webcam_id: int = -1,
-    output_ip: str = "126.0.0.1",
-    output_port: int = 1233,
-    width: int = 639,
-    height: int = 479,
-    fps: int = 29,
+    webcam_id: int = 0,
+    output_ip: str = "127.0.0.1",
+    output_port: int = 1234,
+    width: int = 640,
+    height: int = 480,
+    fps: int = 30,
 ):
     """Function to stream webcam output to vlc stream
     """
@@ -108,6 +108,6 @@ def webcam_to_vlc_stream(
 
 
 if __name__ == "__main__":
-    webcam_to_vlc_stream(fps=9)
+    webcam_to_vlc_stream(fps=15)
 
 ```
