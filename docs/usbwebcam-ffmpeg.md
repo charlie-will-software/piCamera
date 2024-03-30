@@ -34,11 +34,13 @@ Captured output for udp example
 import subprocess
 import cv2
 
+
+# Function to start the ffmpeg process with UDP output
 def start_ffmpeg_process(
     width: int, height: int, fps: int, output_ip: str, output_port: int
 ) -> subprocess.Popen:
     """Function that starts the ffmpeg process with UDP output
-    
+
     Runs subprocess for ffmpeg command that overwrites the existing file
     with the size of the input frame and framerate of the input,
     formatting appropriately for udp streaming to vlc via a given ip
@@ -88,7 +90,7 @@ def webcam_to_vlc_stream(
     fps: int = 30,
 ):
     """Function to stream webcam output to vlc stream
-    
+
     Using webcam id video capture the output, error is
     raised if the webcam cannot be captured from. If successful
     ffmpeg process is started and the camera frame is written to
@@ -102,8 +104,8 @@ def webcam_to_vlc_stream(
         Output_port: output port of the camera
         width: resize value for the cameras network stream as pxls (stream output width)
         height: resize value for the cameras network stream as pxls (stream output height)
-        fps: fps of the output stream 
-    
+        fps: fps of the output stream
+
     Returns:
         None
     """
@@ -129,7 +131,7 @@ def webcam_to_vlc_stream(
         ffmpeg_process.stdin.write(frame.tobytes())
 
         # uncomment to see full realtime feed
-        #cv2.imshow("Webcam VLC Stream", frame)
+        # cv2.imshow("Webcam VLC Stream", frame)
 
         if cv2.waitKey(1) & 0xFF == ord("q"):
             break
@@ -139,5 +141,7 @@ def webcam_to_vlc_stream(
 
 
 if __name__ == "__main__":
-    webcam_to_vlc_stream(fps=10
+    webcam_to_vlc_stream(fps=10)
+
 ```
+
