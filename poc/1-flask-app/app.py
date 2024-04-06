@@ -7,9 +7,11 @@ import ssl
 
 app = Flask(__name__)
 
-@app.route('/')
+
+@app.route("/")
 def index():
-    return render_template('index.html')
+    return render_template("index.html")
+
 
 def stream():
     with PiCamera() as camera:
@@ -18,15 +20,13 @@ def stream():
         # Pre-allocate a buffer to speed up capture
         stream = io.BytesIO()
 
-        for _ in camera.capture_continuous(stream, 'jpeg',
-                                           use_video_port=True):
+        for _ in camera.capture_continuous(stream, "jpeg", use_video_port=True):
             # Reset the stream position to the beginning
             stream.seek(0)
             # Read the stream into memory as jpeg
             frame = stream.read()
             # Yield the frame in the response
-            yield (b'--frame\r\n'
-                   b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
+            yield (b"--frame\r\n" b"Content-Type: image/jpeg\r\n\r\n" + frame + b"\r\n")
 
             # Reset the stream for the next frame
             stream.seek(0)
@@ -35,22 +35,25 @@ def stream():
             # Add a small delay to reduce CPU usage
             time.sleep(0.1)
 
+
 # HTTP route to redirect to HTTPS
-@app.route('/<path:path>', methods=['GET', 'POST'])
+@app.route("/<path:path>", methods=["GET", "POST"])
 def http_to_https(path):
     if request.is_secure:
-        return redirect(request.url.replace('http://', 'https://'), code=301)
+        return redirect(request.url.replace("http://", "https://"), code=301)
     else:
-        return redirect(request.url.replace('http://', 'https://'), code=301)
-    
-@app.route('/video_feed')
-def video_feed():
-    return Response(stream(), mimetype='multipart/x-mixed-replace; boundary=frame')
+        return redirect(request.url.replace("http://", "https://"), code=301)
 
-if __name__ == '__main__':
+
+@app.route("/video_feed")
+def video_feed():
+    return Response(stream(), mimetype="multipart/x-mixed-replace; boundary=frame")
+
+
+if __name__ == "__main__":
     context = ssl.SSLContext(ssl.PROTOCOL_TLSv1_2)
-    context.load_cert_chain('cert.pem', 'key.pem')
-    app.run(host='0.0.0.0', port=8443, debug=True, ssl_context=context)
+    context.load_cert_chain("cert.pem", "key.pem")
+    app.run(host="0.0.0.0", port=8443, debug=True, ssl_context=context)
 
 from flask import Flask, Response
 from picamera import PiCamera
@@ -60,7 +63,7 @@ import ssl
 
 app = Flask(__name__)
 
-@app.route('/')
-def index():
-    return 'Video Streaming Server'
 
+@app.route("/")
+def index():
+    return "Video Streaming Server"
