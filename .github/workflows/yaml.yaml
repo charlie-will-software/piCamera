@@ -12,11 +12,9 @@ on:
   pull_request:
 
 jobs:
-  yamllint:
-    name: yamllint
+  yamllintthings:
     runs-on: ubuntu-latest
     steps:
-        - name: ⤵️ Check out code from GitHub
-          uses: actions/checkout@v4.1.2
-        - name: 🚀 Run yamllint
-          uses: frenck/action-yamllint@v1.5.0
+      - uses: actions/checkout@v3
+      - name: yaml-lint
+        uses: ibiqlik/action-yamllint@v3
