@@ -3,11 +3,11 @@ name: YamlLint
 on:
   push:
     branches:
-    - "main"
-    - "develop"
-    - "feature/**"
+      - "main"
+      - "develop"
+      - "feature/**"
     paths:
-    - "**.yaml"
+      - "**.yaml"
 
   pull_request:
 
