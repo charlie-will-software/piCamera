@@ -1,0 +1,17 @@
+---
+server:
+  ip: 127.0.0.1
+  port: 8000
+  log_level: "debug"
+  host_url: "http://127.0.0.1"
+camera:
+  - name: "default_cam1"
+    streaming:
+      resolution:
+        width: 1920
+        height: 1080
+  - name: "default_cam2"
+    streaming:
+      resolution:
+        width: 640
+        height: 480
