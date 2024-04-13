@@ -64,6 +64,8 @@ class Configuration(BaseSettings):
         Returns:
             Configuration: The loaded configuration instance
         """
+
+        log.debug(f"Yaml file loading from loation:\n{file_path}")
         with open(file_path, "r") as file:
             config_dict = yaml.safe_load(file)
         return cls(**config_dict)
@@ -78,6 +80,8 @@ class Configuration(BaseSettings):
         Returns:
             dict: The validated values
         """
+
+        log.debug(f"Validating Camera with the following values:\n{values}")
         return [Camera(**item) if isinstance(item, dict) else item for item in values]
 
     @field_validator("server", mode="before")
@@ -90,4 +94,6 @@ class Configuration(BaseSettings):
         Returns:
             dict: The validated values
         """
+
+        log.debug(f"Validating Server with the following list values:\n{values}")
         return Server(**values)
