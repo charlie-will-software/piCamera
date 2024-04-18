@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, Response, render_template
 
 # Local imports
 from camera import Camera
@@ -10,6 +10,7 @@ cam.record()
 
 @app.route("/")
 def index():
+    return render_template("index.html")
 
 
 def gen():
