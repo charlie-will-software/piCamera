@@ -14,8 +14,8 @@ class Resolution(BaseModel):
     height: int
 
 
-class Streaming(BaseModel):
-    """Streaming Model describing an individual camera stream."""
+class Stream(BaseModel):
+    """Stream Model describing an individual camera stream."""
 
     resolution: Resolution
 
@@ -23,18 +23,18 @@ class Streaming(BaseModel):
 class Camera(BaseModel):
     """Camera Model describing a singular camera instance.
 
-    Describes a camera as a name containing a streaming
+    Describes a camera as a name containing a stream
     object.
     """
 
     name: str
-    streaming: Streaming
+    stream: Stream
 
 
 class Server(BaseModel):
     """Describes the Server settings
 
-    Describes a server containt an ip, port, log level and a host_url
+    Describes a server contains an ip, port, log level and a host_url
     """
 
     ip: str
