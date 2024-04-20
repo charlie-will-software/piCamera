@@ -1,4 +1,4 @@
-from pydantic import BaseModel, AnyUrl, field_validator, root_validator
+from pydantic import BaseModel, AnyUrl, field_validator
 from pydantic_settings import BaseSettings
 from typing import List
 import yaml
