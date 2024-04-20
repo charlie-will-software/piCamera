@@ -44,10 +44,7 @@ class Server(BaseModel):
 
 
 class Configuration(BaseSettings):
-    """Loading and formatting for YAML configuration files.
-
-    Handles the loading and formatting of YAML configuration files
-    """
+    """Loading and formatting for YAML configuration files."""
 
     server: Server
     camera: List[Camera]
