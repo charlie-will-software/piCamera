@@ -53,7 +53,7 @@ class Configuration(BaseSettings):
     camera: List[Camera]
 
     @classmethod
-    def from_yaml(cls, file_path: str):
+    def from_yaml(cls, file_path: str) -> Configuration:
         """Allows loading of configuration from yaml
 
         Args:
