@@ -63,7 +63,7 @@ class Configuration(BaseSettings):
             Configuration: The loaded configuration instance
         """
 
-        log.debug(f"Yaml file loading from loation:\n{file_path}")
+        log.debug(f"Yaml file loading from location:\n{file_path}")
         with open(file_path, "r") as file:
             config_dict = yaml.safe_load(file)
         return cls(**config_dict)
