@@ -10,7 +10,7 @@
 
 ## Issue Ticket Number and Link
 
-- [CWS-NUM](Link to Jira)
+- [CWS-NUM](https://wdalgleish.atlassian.net/browse/CWS-)
 
 ## Checklist before requesting a review
 
