@@ -48,12 +48,12 @@ class Configuration(BaseSettings):
 
     server: Server
     camera: List[Camera]
-    
+
     @classmethod
-    def import_settings(cls, file_path:str) -> dict:
+    def import_settings(cls, file_path: str) -> dict:
         if file_path.endswith(".yaml"):
             return cls._from_yaml(file_path)
-        else:   
+        else:
             raise ValueError("Incorrect file type. Only .yaml files are supported.")
 
     @classmethod
