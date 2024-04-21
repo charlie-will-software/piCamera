@@ -48,16 +48,23 @@ class Configuration(BaseSettings):
 
     server: Server
     camera: List[Camera]
+    
+    @classmethod
+    def import_settings(cls, file_path:str) -> dict:
+        if file_path.endswith(".yaml"):
+            return cls._from_yaml(file_path)
+        else:   
+            raise ValueError("Incorrect file type. Only .yaml files are supported.")
 
     @classmethod
-    def from_yaml(cls, file_path: str) -> Configuration:
+    def _from_yaml(cls, file_path: str) -> dict:
         """Allows loading of configuration from yaml
 
         Args:
             file_path (str): The path to the YAML file
 
         Returns:
-            Configuration: The loaded configuration instance
+            dict: The loaded configuration instance as a dictionary
         """
 
         log.debug(f"Yaml file loading from location:\n{file_path}")
