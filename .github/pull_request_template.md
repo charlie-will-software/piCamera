@@ -5,7 +5,7 @@
 1. Change number one
     - 1st reason why I made this change
     - 2nd reason why I made this change
- 
+
 ### Example use case (delete if not needed)
 
 ## Issue Ticket Number and Link
