@@ -7,13 +7,9 @@ from stream import StreamOutput
 
 
 class Camera(object):
-    """Camera class.
+    """Creates a PiCamera class object and configures it.
 
-    Creates a PiCamera class object and configures it.
     Allows controlled access to the picamera2 object.
-
-    Attributes:
-        size: A tuple defining the dimensions of the video recording.
     """
 
     def __init__(self, size: tuple[int, int] = (640, 480)) -> None:
