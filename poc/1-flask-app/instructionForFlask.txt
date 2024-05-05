@@ -1,0 +1,5 @@
+Create a self-signed SSL certificate for HTTPS. You can use OpenSSL for this purpose
+My initial command was this
+openssl req -new -x509 -days 365 -nodes -out cert.pem -keyout key.pem
+
+note this is only for dev use
