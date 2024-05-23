@@ -8,7 +8,7 @@ from camera import Camera
 from configurator import Configuration
 
 app = Flask(__name__)
-cam = Camera()
+camera = None
 log = logging.getLogger()
 
 
@@ -22,7 +22,10 @@ def startup() -> None:
     log.info(f"Port: {config.server.port}")
     log.info(f"Log level: {config.server.log_level}")
 
-    cam.record()
+    resolution = config.camera[0].stream.resolution
+    global camera
+    camera = Camera(size=(resolution.width, resolution.height))
+    camera.record()
 
     app.run(host=config.server.ip, port=config.server.port)
 
@@ -42,7 +45,7 @@ def generate_frames() -> Generator[str, None, None]:
     """
 
     while True:
-        frame = cam.output.frame
+        frame = camera.output.frame
         yield (b"--frame\r\n" b"Content-Type: image/jpeg\r\n\r\n" + frame + b"\r\n")
 
 
