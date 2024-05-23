@@ -20,4 +20,5 @@ jobs:
       - uses: jpetrucciani/mypy-check@master
         with:
           path: "webapp/"
+          mypy_flags: "--config-file .mypy.ini"
           requirements_file: "webapp/requirements.txt"
