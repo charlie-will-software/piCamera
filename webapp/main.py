@@ -15,9 +15,12 @@ log = logging.getLogger()
 def startup() -> None:
     logger.configure_initial_logger()
     config = Configuration.import_settings("configuration.yaml")
+    logger.set_log_level(config.server.log_level)
+
     log.info("---Picamera webapp---")
     log.info(f"IP address: {config.server.ip}")
     log.info(f"Port: {config.server.port}")
+    log.info(f"Log level: {config.server.log_level}")
 
     cam.record()
 
