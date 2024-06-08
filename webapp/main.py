@@ -29,7 +29,7 @@ def index() -> str:
     return render_template("index.html")
 
 
-def generate_frames() -> Generator[str, None, None]:
+def generate_frames() -> Generator[bytes, None, None]:
     """Generates camera frames and embeds them in a string for HTTP response.
 
     Yields:

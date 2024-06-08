@@ -50,14 +50,14 @@ class Configuration(BaseSettings):
     camera: List[Camera]
 
     @classmethod
-    def import_settings(cls, file_path: str) -> dict:
+    def import_settings(cls, file_path: str) -> "Configuration":
         if file_path.endswith(".yaml"):
             return cls._from_yaml(file_path)
         else:
             raise ValueError("Incorrect file type. Only .yaml files are supported.")
 
     @classmethod
-    def _from_yaml(cls, file_path: str) -> dict:
+    def _from_yaml(cls, file_path: str) -> "Configuration":
         """Allows loading of configuration from yaml
 
         Args:
@@ -73,7 +73,7 @@ class Configuration(BaseSettings):
         return cls(**config_dict)
 
     @field_validator("camera", mode="before")
-    def validate_camera(cls, values: list) -> dict:
+    def validate_camera(cls, values: list) -> list[Camera]:
         """Validate the camera field in the configuration.
 
         Args:
@@ -87,11 +87,11 @@ class Configuration(BaseSettings):
         return [Camera(**item) if isinstance(item, dict) else item for item in values]
 
     @field_validator("server", mode="before")
-    def validate_server(cls, values: list) -> dict:
+    def validate_server(cls, values: dict) -> Server:
         """Validate the server field in the configuration
 
         Args:
-            values (list): The values being calidared
+            values (list): The values being validated
 
         Returns:
             dict: The validated values

@@ -12,10 +12,10 @@ class StreamOutput(BufferedIOBase):
 
     def __init__(self) -> None:
         """Initialises the StreamOutput instance."""
-        self.frame = None
+
         self.condition = Condition()
 
-    def write(self, buffer) -> None:
+    def write(self, buffer):
         """Writes frames to a binary stream."""
 
         with self.condition:
