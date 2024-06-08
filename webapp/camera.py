@@ -1,9 +1,13 @@
+import logging
 from picamera2 import Picamera2
 from picamera2.encoders import JpegEncoder
 from picamera2.outputs import FileOutput
 
 # Local imports
 from stream import StreamOutput
+
+
+log = logging.getLogger()
 
 
 class Camera(object):
@@ -32,7 +36,8 @@ class Camera(object):
         Args:
             size: Defines the dimensions of the video recording.
         """
-        print(size)
+        log.info("Configuring camera")
+        log.debug(f"Camera size: {size}")
 
         self.camera.configure(
             self.camera.create_video_configuration(main={"size": size})
