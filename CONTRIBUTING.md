@@ -1,20 +1,19 @@
 # Contributing to PiCamera
 
-## Table of Contents
+## Table of contents
 
 - [Contributing to PiCamera](#contributing-to-picamera)
-  - [Table of Contents](#table-of-contents)
+  - [Table of contents](#table-of-contents)
   - [Branching strategy](#branching-strategy)
     - [Naming convention](#naming-convention)
     - [Main branch](#main-branch)
     - [Develop branch](#develop-branch)
     - [Feature branches](#feature-branches)
     - [User branches](#user-branches)
-  - [Pull Requests](#pull-requests)
+  - [Pull requests](#pull-requests)
   - [Style guides](#style-guides)
     - [Commit messages](#commit-messages)
     - [Python code](#python-code)
-
 
 ## Branching strategy
 
@@ -52,7 +51,7 @@ There are 4 types of feature branch.
 | Type          | Purpose                                                                                                                                                           | Naming convention     |
 | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------- |
 | Feature       | Used to store all changes dedicated to a specific feature or enhancement. Feature branches should be branched from the `develop` branch.                          | `feature/description` |
-| Bug fix       | Used to store all changes dedicated to fixing a discovered bug in `develop`. Bug fix branches should be branched from the `develop` branch.                       | `bugfix`              |
+| Bug fix       | Used to store all changes dedicated to fixing a discovered bug in `develop`. Bug fix branches should be branched from the `develop` branch.                       | `bugfix/description`  |
 | Hot fix       | Used to store all changes dedicated to fixing a bug in the `main` branch, that needs fixing fast. Hot fix branches should be branched from the `main` branch.     | `hotfix/description`  |
 | Documentation | Used to store all changes dedicated to improving a section of the repository or software documentation. Documentation branches should be branched from `develop`. | `docs/description`    |
 
@@ -66,7 +65,7 @@ Upon completion of the work, a Pull Request should be raised to merge the change
 
 > See [Pull Requests](#pull-requests) for more information on raising one.
 
-## Pull Requests
+## Pull requests
 
 Pull requests should be titled with a brief summary of the changes. The description should explain in more detail the changes made and why.
 
