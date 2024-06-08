@@ -4,7 +4,7 @@ from picamera2.encoders import JpegEncoder
 from picamera2.outputs import FileOutput
 
 # Local imports
-from stream import StreamOutput
+from webapp.stream import StreamOutput
 
 
 log = logging.getLogger()
