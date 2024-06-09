@@ -1,10 +1,15 @@
 # Streaming webcam as ipcamera
 
-Webcams can easily be accessed via the cv2 library which can be installed by the appropriate opencv install method.
+## Library installation
 
-Note that all installations here are only the main modules packages there are extra contributed packages if you are interested see the [open-cv pypi website](https://pypi.org/project/opencv-python/)
+Webcams can easily be accessed via the cv2 library
 
-## Linux
+Note that all installations here are only the main modules packages
+There are extra contributed packages
+
+- if you are interested see the [open-cv pypi website](https://pypi.org/project/opencv-python/)
+
+### Linux
 
 Make sure opencv is installed first not via pip (you may need to use sudo):
 
@@ -15,19 +20,22 @@ Now use this command to install via pip:
 
 `pip3 install opencv-python`
 
-## Windows
+### Windows
 
 `pip install opencv-python`
 
-# Network Stream Capturing
+## Network Stream Capturing
+
 Captured output for udp example
+
 1. Open vlc
 2. In the top bar click the "media" dropdown
 3. Then click "Open Network Stream (Ctrl + N)"
 4. Enter the stream to capture `udp://@<output-ip>:<output_port>`
     - for the example script: `udp://@127.0.0.1:1234`
 
-## Example using UDP
+### Example using UDP
+
 **Note**:The example below is tested on a Framework 13 Laptop
 
 ```python
@@ -93,17 +101,20 @@ def webcam_to_vlc_stream(
 
     Using webcam id video capture the output, error is
     raised if the webcam cannot be captured from. If successful
-    ffmpeg process is started and the camera frame is written to
-    the standard input of the process. If uncommented there is an
-    output of the camera from cv2.imshow. When exited appropriately,
-    the camera is released. Currently if you fail to exit you receive an error.
+    ffmpeg process is started.
+    Then the camera frame is written to the standard input of the process.
+    If uncommented there is an output of the camera from cv2.imshow.
+    When exited appropriately, the camera is released.
+    Currently if you fail to exit you receive an error.
 
     Args:
         webcam_id: id of the camera
         output_ip: output ip of the camera
         Output_port: output port of the camera
-        width: resize value for the cameras network stream as pxls (stream output width)
-        height: resize value for the cameras network stream as pxls (stream output height)
+        width: resize value for the cameras
+            network stream as pxls (stream output width)
+        height: resize value for the cameras network
+            stream as pxls (stream output height)
         fps: fps of the output stream
 
     Returns:
@@ -115,7 +126,8 @@ def webcam_to_vlc_stream(
         print("Error: Couldn't open webcam.")
         return
 
-    ffmpeg_process = start_ffmpeg_process(width, height, fps, output_ip, output_port)
+    ffmpeg_process = start_ffmpeg_process(width, height,...
+        fps, output_ip, output_port)
 
     while True:
         ret, frame = cap.read()
@@ -144,4 +156,3 @@ if __name__ == "__main__":
     webcam_to_vlc_stream(fps=10)
 
 ```
-
