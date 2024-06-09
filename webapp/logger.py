@@ -3,6 +3,9 @@
 import logging
 
 
+SUPPORTED_LOG_LEVELS = ("DEBUG", "INFO", "WARNING", "ERROR")
+
+
 log = logging.getLogger()
 
 
@@ -18,3 +21,11 @@ def configure_initial_logger() -> None:
     log.addHandler(console_handler)
 
     log.setLevel("INFO")
+
+
+def set_log_level(level: str) -> None:
+    level = level.upper()
+    if level not in SUPPORTED_LOG_LEVELS:
+        raise ValueError(f"Loge level {level} not supported")
+
+    log.setLevel(level)
