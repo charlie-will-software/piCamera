@@ -1,5 +1,5 @@
 ---
-name: PythonBlackLint
+name: MarkdownLint
 
 on:  # yamllint disable-line rule:truthy
   push:
@@ -8,16 +8,15 @@ on:  # yamllint disable-line rule:truthy
       - "develop"
       - "feature/**"
     paths:
-      - "**.py"
+      - "**.md"
 
   pull_request:
 
 jobs:
-  blacklinting:
-    name: runner / black formatter
+  lint:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: psf/black@stable
+      - uses: DavidAnson/markdownlint-cli2-action@v16
         with:
-          options: "--check --verbose"
+          globs: '**/*.md'
