@@ -35,5 +35,5 @@ You can exit the virtual environment with the `deactivate` command.
 To run the server, make sure you are in the `webapp/` directoy and run the `main.py` file with python.
 
 ```bash
-python3 main.py
+flask --app webapp.main:app run --host 0.0.0.0 --port 8000
 ```
